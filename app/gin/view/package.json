@@ -1,0 +1,22 @@
+{
+  "name": "view",
+  "version": "1.0.0",
+  "main": "vite.cofig.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "vite": "^4.0.0"
+  },
+  "dependencies": {
+    "react": "^19.0.0"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-arm64-musl": "4.32.2"
+  }
+}
