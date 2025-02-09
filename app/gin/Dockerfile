@@ -9,7 +9,6 @@ WORKDIR /go/src/app
 # Go Modulesの依存パッケージをインストール
 RUN go mod init todo_app
 RUN go mod tidy
-RUN go run main.go
 
 # アプリケーションコードをコピー
 COPY . .
