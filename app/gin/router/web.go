@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"todo_app/controler"
 )
 
 func Web() *gin.Engine {
@@ -15,6 +16,7 @@ func Web() *gin.Engine {
         }
         c.JSON(http.StatusOK, user)
     })
+	r.POST("/api/test", controler.TestControler)
 
 	return r
 }
