@@ -1,4 +1,4 @@
-package controler
+package controller
 
 import (
 	"net/http"
@@ -8,13 +8,13 @@ import (
 	"todo_app/model"
 )
 
-type RequestBody struct {
+type TestRequestBody struct {
 	Text string `json:"text"` // JSON フィールドにマッピング
 }
 
 func TestControler(c *gin.Context) {
 
-	var requestBody RequestBody
+	var requestBody TestRequestBody
 
 	// JSON ボディをバインドして取り出す
 	if err := c.ShouldBindJSON(&requestBody); err != nil {
