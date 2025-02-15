@@ -20,6 +20,7 @@ func Web() *gin.Engine {
 	r.POST("/api/test", controller.TestControler)
 	r.POST("/api/create", controller.TodoCreate)
 	r.GET("/api/get/todos", controller.GetAllTodo)
+	r.POST("/api/create/acount", controller.CreateAcount)
 
 	return r
 }
