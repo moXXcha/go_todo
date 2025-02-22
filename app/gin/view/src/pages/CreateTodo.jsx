@@ -6,7 +6,7 @@ const CreateTodo = () => {
     const [description, setDescription] = useState("")
 
     const submit = async (title, description) => {
-        const {response, error} = await axios.post("/api/create", {
+        const {response, error} = await axios.post("/api/auth/create", {
           title: title,
           description: description
         })

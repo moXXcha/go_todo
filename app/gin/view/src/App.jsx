@@ -8,20 +8,52 @@ import TodoIndex from './pages/TodoIndex';
 import TodoDetail from './pages/TodoDetail';
 import CreateUser from './pages/CreateUser';
 import HomeTest from './pages/HomeTest';
+import PrivateRoute from './components/PrivateRoute';
+import AllreadyLoginRoute from './components/AllreadyLoginRoute';
+import AllreadyLogin from './pages/AllreadyLogin';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <Router>
+    <Router basename="/">
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/test" element={<Test />} />
-        <Route path='/create' element={<CreateTodo />} />
-        <Route path="/index" element={<TodoIndex />} />
-        <Route path="/index/:id" element={<TodoDetail />} />
         <Route path="/create/user" element={<CreateUser />} />
-        <Route path="/home/test" element={<HomeTest />} />
+        <Route path="/login" element={
+          <AllreadyLoginRoute>
+            <Login />
+          </AllreadyLoginRoute>
+          
+          } />
+        <Route path="/test" element={
+          <PrivateRoute>
+            <Test />
+        </PrivateRoute>
+        } />
+        <Route path="/create/todo" element={
+          <PrivateRoute>
+            <CreateTodo />
+        </PrivateRoute>
+        } />
+        <Route path="/todo/summary" element={
+          <PrivateRoute>
+            <TodoIndex />
+        </PrivateRoute>
+        } />
+        <Route path="/todo/:id" element={
+          <PrivateRoute>
+            <TodoDetail />
+        </PrivateRoute>
+        } />
+        <Route path="/home/test" element={
+          <PrivateRoute>
+            <HomeTest />
+        </PrivateRoute>
+        } />
+        <Route path="/allready-login" element={
+          <PrivateRoute>
+            <AllreadyLogin />
+        </PrivateRoute>
+        } />
       </Routes>
   </Router>
   )

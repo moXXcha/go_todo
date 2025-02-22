@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"todo_app/database"
 	"todo_app/model"
-	"crypto/sha256"
+	"todo_app/usecase"
 
 	"github.com/gin-gonic/gin"
 )
@@ -36,7 +36,7 @@ func CreateAcount(c *gin.Context) {
 		panic("allready created acount")
 	}
 
-	temp := getSHA256Binary(requestBody.Password)
+	temp := usecase.PasswordHashAction(requestBody.Password)
 	hashedPass := hex.EncodeToString(temp) 
 
 	user := model.User{Email: requestBody.Email, Password: hashedPass}
@@ -53,9 +53,4 @@ func CreateAcount(c *gin.Context) {
 		"email": requestBody.Email,
 	})
 	fmt.Println("successfuly create acount")
-}
-
-func getSHA256Binary(input string) []byte {
-	hash := sha256.Sum256([]byte(input))
-	return hash[:] // 配列をスライスに変換
 }

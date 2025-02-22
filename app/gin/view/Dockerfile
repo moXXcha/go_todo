@@ -5,7 +5,7 @@ FROM node:18-alpine
 WORKDIR /go/src/app/gin/view
 
 # package.json と package-lock.json をコピー
-COPY ./app/gin/view/package*.json ./
+COPY ./package*.json ./
 
 # 残りのフロントエンドのコードをコピー
 COPY ./ /go/src/app/gin/view
