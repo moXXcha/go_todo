@@ -26,6 +26,7 @@ func Web() *gin.Engine {
 		auth.POST("/create", controller.TodoCreate)
 		auth.GET("/get/todos", controller.GetAllTodo)
 		auth.POST("/logout", controller.LogoutController)
+		auth.GET("/get/todo/detail", controller.GetTodo)
 	}
 
 	return r

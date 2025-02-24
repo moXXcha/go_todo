@@ -1,15 +1,22 @@
 "use client"
-import React, { useEffect } from 'react'
 import Todo from './Todo'
-import { useGetAllTodo } from '../hooks/useGetAllTodo'
+import axios from 'axios';
+import React, { useEffect } from 'react'
+import useSWR from 'swr';
 
 const TodoList = () => {
-    const todos =  useGetAllTodo()
+  const fetcher = async (url) => {
+    return await axios.get(url)
+    .then(r => r.data)
+  }
+  const { data, error, isLoading } = useSWR('/api/auth/get/todos', fetcher);
   return (
     <div className='w-full h-full flex flex-col mt-5'>
-        {todos ? (<p>test</p>): (<p>sinu</p>)}
-        <Todo />
-        <Todo />
+        {isLoading ? (<p>loading...</p>): (
+          data.todos.map((item, index) => (
+            <Todo item={item} key={index} />
+          ))
+        )}
     </div>
   )
 }
