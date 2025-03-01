@@ -11,6 +11,7 @@ import HomeTest from './pages/HomeTest';
 import PrivateRoute from './components/PrivateRoute';
 import AllreadyLoginRoute from './components/AllreadyLoginRoute';
 import AllreadyLogin from './pages/AllreadyLogin';
+import TodoEdit from './pages/TodoEdit';
 
 function App() {
 
@@ -39,9 +40,14 @@ function App() {
             <TodoIndex />
         </PrivateRoute>
         } />
-        <Route path="/todo/:id" element={
+        <Route path="/todo/detail/:id" element={
           <PrivateRoute>
             <TodoDetail />
+        </PrivateRoute>
+        } />
+        <Route path="/todo/edit/:id" element={
+          <PrivateRoute>
+            <TodoEdit />
         </PrivateRoute>
         } />
         <Route path="/home/test" element={

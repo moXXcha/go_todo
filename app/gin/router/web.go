@@ -27,6 +27,7 @@ func Web() *gin.Engine {
 		auth.GET("/get/todos", controller.GetAllTodo)
 		auth.POST("/logout", controller.LogoutController)
 		auth.GET("/get/todo/detail", controller.GetTodo)
+		auth.PATCH("/edit/todo", controller.EditTodo)
 	}
 
 	return r

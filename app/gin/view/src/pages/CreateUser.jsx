@@ -28,10 +28,11 @@ const CreateUser = () => {
         <h1 className='text-xl font-bold mb-5'>create acount</h1>
         {is409Error ? <p className="text-red-600">allready created acound</p> : <></>}
         <p>email</p>
-        <input type="text" className="border h-10 rounded-md mb-10 p-2" placeholder='email' onChange={(e) => setEmail(e.target.value)} />
+        <input type="text" className="border h-10 rounded-md mb-5 p-3" placeholder='email' onChange={(e) => setEmail(e.target.value)} />
         <p>password</p>
-        <input type="password" className='border h-10 rounded-md mb-10 p-2' placeholder='password' onChange={(e) => setPassword(e.target.value)} />
-        <button className='border w-32 h-10 rounded-md mx-auto hover:bg-black hover:text-white transition-all' onClick={() => submit(email, password)}>送信</button>
+        <input type="password" className='border h-10 rounded-md mb-5 p-3' placeholder='password' onChange={(e) => setPassword(e.target.value)} />
+        <button className='border w-32 h-10 rounded-md mx-auto hover:bg-black hover:text-white transition-all' onClick={() => submit(email, password)}>create</button>
+        <a href="/login" className='text-black underline mx-auto'>login</a>
     </div>
   )
 }

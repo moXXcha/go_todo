@@ -5,7 +5,7 @@ import { useCookies } from 'react-cookie';
 const AllreadyLoginRoute = ({ children }) => {
   const [sessionCookie, setCookie] = useCookies(["session"])
   if(sessionCookie.session) {
-    return <Navigate to="/allready-login" />
+    return <Navigate to="/todo/summary" />
   }
   return children;
 }

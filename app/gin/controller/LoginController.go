@@ -60,6 +60,8 @@ func LoginController(c *gin.Context) {
 	session.Options = &sessions.Options{
 		Path: "/",
 	}
+	fmt.Printf("ID type: %T, value: %v\n", users[0].ID, users[0].ID) 
+	session.Values["user_id"] = int(users[0].ID)
 	session.Values["user_email"] = requestBody.Email
 	session.Save(c.Request, c.Writer)
 

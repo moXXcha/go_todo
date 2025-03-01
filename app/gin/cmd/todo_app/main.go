@@ -9,7 +9,10 @@ import (
 
 func main() {
 	db := database.InitDB()
-	db.AutoMigrate(&model.User{})
+	db.AutoMigrate(
+		&model.User{},
+		&model.Todo{},
+	)
 
 	router := router.Web()
 	router.Run("0.0.0.0:8081")

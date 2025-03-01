@@ -22,18 +22,15 @@ function Login() {
           });
     }
     const navigate = useNavigate()
-    const testOnClick = () => {
-      navigate("/test")
-    }
   return (
     <div className='w-1/2 mx-auto flex flex-col mt-32'>
         <h1 className='text-xl font-bold mb-5'>login</h1>
         <p>email</p>
-        <input type="text" className="border h-10 rounded-md mb-5 p-3" placeholder='userIid' onChange={(e) => {setEmail(e.target.value)}} />
+        <input type="text" className="border h-10 rounded-md mb-5 p-3" placeholder='email' onChange={(e) => {setEmail(e.target.value)}} />
         <p>password</p>
         <input type="password" className="border h-10 rounded-md mb-5 p-3" placeholder='password' onChange={(e) => setPassword(e.target.value)} />
-        <button className='border w-32 h-10 rounded-md mx-auto hover:bg-black hover:text-white transition-all' onClick={() => submit(email, password)}>ログイン</button>
-        {responseStatus === 200?  <button className='border w-32 h-10 cursor-pointer' onClick={() => testOnClick()}>遷移</button> : <></>}
+        <button className='border w-32 h-10 rounded-md mx-auto hover:bg-black hover:text-white transition-all' onClick={() => submit(email, password)}>login</button>
+        <a href="/create/user" className='text-black underline mx-auto'>create user</a>
     </div>
   )
 }
